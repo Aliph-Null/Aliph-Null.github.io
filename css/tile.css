@@ -57,7 +57,7 @@
 }
 
 .loading_watermark{
-    position: fixed; top: 0; left: 0;
+    position: absolute; top: 0; left: 0;
     height: 100%;
     width: 100%;
 }
@@ -70,10 +70,39 @@
     align-content: center;
     justify-content: center;
 }
+/*  */
+.white_circle{
+    position: relative;
+    display: grid;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 509px;
+    width: 509px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    filter: drop-shadow(0 0 0.75rem aliceblue);
+}
 
-#big_logo_display img{
-    filter: drop-shadow(0 0 0.75rem rgba(30, 25, 100));
-    height: 500px;
-    width: 500px;
-    object-fit: cover;
+.black_circle{
+    position: relative;
+    display: grid;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 505px;
+    width: 505px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    filter: drop-shadow(0 0 0.50rem rgba(30, 25, 100));
+}
+
+.logo_image{
+    height: 500px; width: 500px; 
+    border-radius: 50%;
+
+    filter: drop-shadow(0 0 0.25rem crimson);
+    background-image: url('/img/logo/logo_butterfly_carbon_red_4k.png');
+    background-size: 200%;
+    background-position: 250% 250%;
 }

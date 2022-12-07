@@ -106,3 +106,14 @@ function OnToggleOffTiles(){
 function OnToggleOnTiles(){
 
 }
+
+const logo_image = document.querySelector('.logo_image')
+addEventListener('mousemove', (event) => {});
+
+onmousemove = (event) => { 
+    var x = Math.floor(event.clientX / width * 100);
+    var y = Math.floor(event.clientY / width * 100);
+
+    logo_image.style.backgroundPosition = x + "% " + y + "%"; 
+    console.log("Left? : " + x + " ; Top? : " + y + ".");
+}
