@@ -51,11 +51,17 @@ const createGrid = () =>{
     createTiles(tile_colums * tile_rows);
 }
 
-let toggled = false;
+let toggled = true;
 
 const handleOnClick = index =>{
     toggled = !toggled;
     clicks -= -1;
+
+    if(toggled){
+        OnToggleOnTiles();
+    }else{
+        OnToggleOffTiles();
+    }
 
     if(clicks >= clicks_to_proceed){
         loading_screen_terminate(1500);
@@ -91,4 +97,12 @@ function enableScroll() {
     window.onscroll = function() {};
     document.body.style.height = "auto";
     document.body.style.overflow = "visible";
+}
+
+function OnToggleOffTiles(){
+    
+}
+
+function OnToggleOnTiles(){
+
 }
