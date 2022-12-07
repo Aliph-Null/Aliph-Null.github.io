@@ -1,4 +1,4 @@
-var Tile_Size = 50, //Tile size is 50 px
+var tile_size = 50, //Tile size is 50 px
     clicks = 0,
     width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
     height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0),
