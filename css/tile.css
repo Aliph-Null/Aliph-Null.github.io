@@ -47,6 +47,9 @@
 
 .tile{
     position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(20, 20, 50);
 }
 
 .tile::before{
