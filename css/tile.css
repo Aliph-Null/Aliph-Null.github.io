@@ -70,36 +70,41 @@
     align-content: center;
     justify-content: center;
 }
-/*  */
-.white_circle{
+
+#white_circle{
     position: relative;
+
     display: grid;
     align-items: center;
     align-content: center;
     justify-content: center;
-    height: 509px;
-    width: 509px;
+
+    height: 500px; width: 500px; aspect-ratio: 1;
+
     border-radius: 50%;
     background-color: aliceblue;
     filter: drop-shadow(0 0 0.75rem aliceblue);
 }
 
-.black_circle{
+#black_circle{
     position: relative;
+
     display: grid;
     align-items: center;
     align-content: center;
     justify-content: center;
-    height: 505px;
-    width: 505px;
+
+    height: 500px; width: 500px; aspect-ratio: 1;
+
     border-radius: 50%;
     background-color: rgb(20, 20, 20);
     filter: drop-shadow(0 0 0.50rem rgba(30, 25, 100));
 }
 
-.logo_image{
-    height: 500px; width: 500px; 
+#logo_image{
     border-radius: 50%;
+
+    height: 500px; width: 500px; aspect-ratio: 1;
 
     filter: drop-shadow(0 0 0.25rem crimson);
     background-image: url('/img/logo/logo_butterfly_carbon_red_4k.png');

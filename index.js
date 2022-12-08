@@ -1,15 +1,17 @@
 var tile_size = 50, //Tile size is 50 px
     clicks = 0,
-    width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
-    height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0),
+    vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
+    vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0),
     tile_colums = 1,
-    tile_rows = 1;
+    tile_rows = 1,
+    def_displacement = 25; //in % logo size is displaced
 const clicks_to_proceed = 5;
 const time_to_procceed_load_page_miliseconds = 10000; // 10 seconds until the website decides to load cuz no loading actually occurs
 
 window.onload = function onload() {
     console.log("Hello World!");
     createGrid();
+    DisplayStartLogo();
     disableScroll();
     loading_screen_terminate(time_to_procceed_load_page_miliseconds);
     setTimeout(function() {
@@ -18,10 +20,11 @@ window.onload = function onload() {
 }
 
 window.onresize = function onResize(){
-    width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
     createGrid();
+    DisplayStartLogo();
 }
 
 let wrapper = document.querySelector('#tiles');
@@ -29,6 +32,7 @@ let wrapper = document.querySelector('#tiles');
 const createTile = index => {
     const tile = document.createElement("div");
     tile.classList.add("tile");
+    tile.style.opacity = Math.random();
     tile.onclick = e => handleOnClick(index);
     return tile;
 }
@@ -42,8 +46,8 @@ const createTiles = quantity =>{
 const createGrid = () =>{
     wrapper.innerHTML = "";
 
-    tile_colums = Math.floor(width / tile_size);
-    tile_rows = Math.floor(height / tile_size);
+    tile_colums = Math.floor(vw / tile_size);
+    tile_rows = Math.floor(vh / tile_size);
 
     wrapper.style.setProperty("--columns", tile_colums);
     wrapper.style.setProperty("--rows", tile_rows);
@@ -107,13 +111,53 @@ function OnToggleOnTiles(){
 
 }
 
-const logo_image = document.querySelector('.logo_image')
+const logo_image = document.querySelector('#logo_image');
+const white_circle = document.querySelector('#white_circle');
+const black_circle = document.querySelector('#black_circle');
+//console.log(logo_image);
+//console.log(white_circle);
+//console.log(black_circle);
+
 addEventListener('mousemove', (event) => {});
 
 onmousemove = (event) => { 
-    var x = Math.floor(event.clientX / width * 100);
-    var y = Math.floor(event.clientY / width * 100);
+    var x = Math.floor(event.clientX / vw * 100);
+    var y = Math.floor(event.clientY / vh * 100);
 
     logo_image.style.backgroundPosition = x + "% " + y + "%"; 
-    console.log("Left? : " + x + " ; Top? : " + y + ".");
+    // console.log("Left? : " + x + " ; Top? : " + y + ".");
+}
+
+logo_image.style.backgroundPosition = "0% 0%"; 
+
+function DisplayStartLogo(){
+    
+    let displacement_img = 7,
+        displacement_b_c = 6,
+        displacement_w_c = 5;
+
+    let size = "";
+    
+    if(vh < vw) {
+        size = vh;
+    }
+
+    if(vw < vh){
+        size = vw;
+    }
+
+    logo_image.style.height = (size - (size/100 * (def_displacement + displacement_img))) + "px";
+    logo_image.style.width =  (size - (size/100 * (def_displacement + displacement_img))) + "px";
+    
+    white_circle.style.height = (size - (size/100 * (def_displacement + displacement_w_c))) + "px";
+    white_circle.style.width = (size - (size/100 * (def_displacement + displacement_w_c))) + "px";
+    
+    black_circle.style.height = (size - (size/100 * (def_displacement + displacement_b_c))) + "px";
+    black_circle.style.width = (size - (size/100 * (def_displacement + displacement_b_c))) + "px";
+
+    console.log("Set display logo correctly");
+
+    logo_image.onclick = e => handleOnClick((tile_colums * tile_rows) / 2);
+    black_circle.onclick = e => handleOnClick((tile_colums * tile_rows) / 2);
+    white_circle.onclick = e => handleOnClick((tile_colums * tile_rows) / 2);
 }
