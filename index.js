@@ -29,12 +29,35 @@ window.onresize = function onResize(){
 
 let wrapper = document.querySelector('#tiles');
 
+let seed = Math.random();
+perlin.seed(seed);
+
+var pure_random_generation = false;
+    opacity_addition = 0.001;
+    opacity_burn = 1.5;
+
 const createTile = index => {
     const tile = document.createElement("div");
     tile.classList.add("tile");
+    
+    seed = Math.random();
 
-    //tile.style.opacity = Math.random();
-    //tile.style.opacity = (perlin.get(index, index) / 2) + 0.5;
+    let x, y;
+    x = index % tile_colums;
+    y = (index - x + 1) % tile_rows;
+    
+    x = x / seed;
+    y = y / seed;
+    
+    let opacity;
+
+    opacity = (perlin.get(x, y) / 2 + opacity_addition) * opacity_burn;
+
+    if(pure_random_generation) {
+        opacity = Math.random();
+    }
+
+    tile.style.opacity = opacity;
 
     tile.onclick = e => handleOnClick(index);
     return tile;
