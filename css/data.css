@@ -8,4 +8,7 @@
 
     background-image: url("/img/background/C_colored_backgr.png");
     background-repeat: repeat-y;
+
+    background-size: cover;
+    background-blend-mode: screen;
 }
