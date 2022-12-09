@@ -32,7 +32,10 @@ let wrapper = document.querySelector('#tiles');
 const createTile = index => {
     const tile = document.createElement("div");
     tile.classList.add("tile");
-    tile.style.opacity = Math.random();
+
+    //tile.style.opacity = Math.random();
+    //tile.style.opacity = (perlin.get(index, index) / 2) + 0.5;
+
     tile.onclick = e => handleOnClick(index);
     return tile;
 }
