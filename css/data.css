@@ -19,5 +19,7 @@
     width: 100vw;
 
     overflow: hidden;
-    mix-blend-mode: color-dodge;
+    mix-blend-mode: multiply;
+    /* luminosity */
+    /* saturation */
 }
