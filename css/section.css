@@ -1,0 +1,30 @@
+section{
+    width: 90%; height: fit-content;
+
+}
+
+.hidden{
+
+}
+
+.opacity_hidden{
+    opacity: 0;
+    transition-duration: 1s;
+}
+
+.blur_hidden{
+    filter: blur(5px);
+    transition-duration: 1s;
+}
+
+.position_hidden{
+    transform: translateX(-100%);
+    transition-duration: 1s;
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0%);
+}
+
