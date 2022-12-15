@@ -187,3 +187,23 @@ function DisplayStartLogo(){
     black_circle.onclick = e => handleOnClick((tile_colums * tile_rows) / 2);
     white_circle.onclick = e => handleOnClick((tile_colums * tile_rows) / 2);
 }
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting){
+            var delay = entry.target.getAttribute("data-animation-delay");
+            if(delay != ""){
+                entry.target.style.transitionDelay = delay;
+            }
+
+            entry.target.classList.add('show');
+        }else{
+            if (!entry.target.classList.contains('dontHide')){
+                entry.target.classList.remove('show');
+            }
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
