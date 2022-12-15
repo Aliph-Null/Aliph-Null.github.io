@@ -12,7 +12,7 @@
     background-size: cover;
 }
 
-#data{
+#overlay_img{
     position: fixed; top: 0; left: 0;
 
     height: 100vh;
@@ -22,4 +22,13 @@
     mix-blend-mode: multiply;
     /* luminosity */
     /* saturation */
+}
+
+#data{
+    display: block;
+    position: fixed; top: 0; left: 0;
+
+    height: 100%; width: 100%;
+
+    background-color: aliceblue;
 }
