@@ -1,13 +1,15 @@
-var tile_size = 50, //Tile size is 50 px
-    clicks = 0,
-    vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
-    vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0),
-    tile_colums = 1,
-    tile_rows = 1,
-    def_displacement = 25; //in % logo size is displaced
-const clicks_to_proceed = 5;
+var tile_size = 50,         //Tile size is 50 px
+    clicks = 0,         //click counter
+    vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),           //page width
+    vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0),         //page height
+    tile_colums = 1,            //colums to be generated for loading screen
+    tile_rows = 1,              //rows to be generated for loading screen
+    def_displacement = 25;      //in % logo size is displaced 
+const clicks_to_proceed = 5;    //number of clicks when loading screen goes away
+let toggled = true;             //boolean whever or not the loading screen is toggled
 const time_to_procceed_load_page_miliseconds = 10000; // 10 seconds until the website decides to load cuz no loading actually occurs
 
+//Function run after the page loads
 window.onload = function onload() {
     console.log("Hello World!");
     createGrid();
@@ -19,6 +21,7 @@ window.onload = function onload() {
       }, time_to_procceed_load_page_miliseconds);
 }
 
+//Function run when the page is resized
 window.onresize = function onResize(){
     vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
@@ -27,19 +30,23 @@ window.onresize = function onResize(){
     DisplayStartLogo();
 }
 
+//Ellement where the tiles will be generated
 let wrapper = document.querySelector('#tiles');
 
+//vars for perlin noise
 let seed = Math.random();
 perlin.seed(seed);
-
+//varss for changing noise application
 var pure_random_generation = false;
     opacity_addition = 0.001;
     opacity_burn = 1.5;
 
+//create a tile with an index
 const createTile = index => {
     const tile = document.createElement("div");
     tile.classList.add("tile");
     
+    //use perlin noise to generate opacity and apply it
     seed = Math.random();
 
     let x, y;
@@ -59,16 +66,19 @@ const createTile = index => {
 
     tile.style.opacity = opacity;
 
+    //add each tile to hndleOnClick event when clicked with it's index
     tile.onclick = e => handleOnClick(index);
     return tile;
 }
 
+//function to create all tiles
 const createTiles = quantity =>{
     Array.from(Array(quantity)).map((tile, index) => {
         wrapper.appendChild(createTile(index));
     })
 }
 
+//functions defining the grid and creating tiles
 const createGrid = () =>{
     wrapper.innerHTML = "";
 
@@ -81,8 +91,8 @@ const createGrid = () =>{
     createTiles(tile_colums * tile_rows);
 }
 
-let toggled = true;
 
+//handle onClick for each tile with it's index to do animation
 const handleOnClick = index =>{
     toggled = !toggled;
     clicks -= -1;
@@ -109,6 +119,7 @@ const handleOnClick = index =>{
     })
 }
 
+//turn off loading screen
 function loading_screen_terminate(delay){
     anime({
         targets: ".loading_watermark",
@@ -118,44 +129,49 @@ function loading_screen_terminate(delay){
     })
 }
 
+//disable scroll
 function disableScroll() {
     document.body.style.height = "100%";
     document.body.style.overflow = "hidden";
 }
-  
+ 
+//enable scroll
 function enableScroll() {
     window.onscroll = function() {};
     document.body.style.height = "auto";
     document.body.style.overflow = "visible";
 }
 
+
+//function called when tiles are off
 function OnToggleOffTiles(){
     
 }
-
+//function called when tiles are on
 function OnToggleOnTiles(){
 
 }
 
+//Get elements for logo display
 const logo_image = document.querySelector('#logo_image');
 const white_circle = document.querySelector('#white_circle');
 const black_circle = document.querySelector('#black_circle');
-//console.log(logo_image);
-//console.log(white_circle);
-//console.log(black_circle);
 
+//Reset logo image
+logo_image.style.backgroundPosition = "0% 0%"; 
+
+//Event listener for mouse movement
 addEventListener('mousemove', (event) => {});
 
+//change logo position based on mouse position
 onmousemove = (event) => { 
     var x = Math.floor(event.clientX / vw * 100);
     var y = Math.floor(event.clientY / vh * 100);
 
     logo_image.style.backgroundPosition = x + "% " + y + "%"; 
-    // console.log("Left? : " + x + " ; Top? : " + y + ".");
 }
 
-logo_image.style.backgroundPosition = "0% 0%"; 
-
+//Display the logo correctly for any display
 function DisplayStartLogo(){
     
     let displacement_img = 7,
@@ -188,6 +204,7 @@ function DisplayStartLogo(){
     white_circle.onclick = e => handleOnClick((tile_colums * tile_rows) / 2);
 }
 
+//Manages sections for scrolled animations
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if(entry.isIntersecting){
@@ -205,5 +222,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
+//variables to manage the scroll animations
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
