@@ -64,6 +64,8 @@ const createTile = index => {
         opacity = Math.random();
     }
 
+    opacity = perlin.get(x / tile_colums, y/tile_rows);
+
     tile.style.opacity = opacity;
 
     //add each tile to hndleOnClick event when clicked with it's index

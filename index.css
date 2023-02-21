@@ -1,6 +1,7 @@
 @import "/css/tile.css";
 @import "/css/data.css";
 @import "/css/section.css";
+@import "/css/orb_canvas.css";
 
 body{
     margin: 0;

@@ -7,8 +7,8 @@
     <title>Aliph Null</title>
  
     <link rel="stylesheet" href="index.css">
-    <script src="/js/dependencies/anime.js"></script>
-    <script src="js/dependencies/perlin.js"></script>
+    <script defer src="/js/dependencies/anime.js"></script>
+    <script defer src="js/dependencies/perlin.js"></script>
     <script defer src="index.js"></script>
 </head>
 <body>
@@ -17,7 +17,8 @@
     </div> -->
 
     <div class="canvas-wrapper">
-       
+        <canvas class="orb-canvas"></canvas>
+        <script type="module" src="/js/dependencies/orb.js"></script>
     </div>
 
     <div id="data">
@@ -28,6 +29,8 @@
             </div>
         </section>
     </div>
+
+   
 
     <div class="loading_watermark">
         <div id="tiles"></div>
