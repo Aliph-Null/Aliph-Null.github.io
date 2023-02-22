@@ -10,6 +10,7 @@
     background-repeat: repeat-y;
 
     background-size: cover;
+    mix-blend-mode: color-dodge;
 }
 
 #overlay_img{
@@ -19,7 +20,7 @@
     width: 100vw;
 
     overflow: hidden;
-    mix-blend-mode: multiply;
+    /* mix-blend-mode: multiply; */
     /* luminosity */
     /* saturation */
 }

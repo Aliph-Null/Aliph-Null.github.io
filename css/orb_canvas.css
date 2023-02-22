@@ -42,5 +42,6 @@
     padding: 2rem;
     font-family: var(--font-family);
     color: var(--dark-color);
-    background: black;
+    /* background: black; */
+    background: transparent;
 }

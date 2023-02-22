@@ -14,11 +14,16 @@ window.onload = function onload() {
     console.log("Hello World!");
     createGrid();
     DisplayStartLogo();
-    disableScroll();
+    //disableScroll();
     loading_screen_terminate(time_to_procceed_load_page_miliseconds);
-    setTimeout(function() {
-        enableScroll();
-      }, time_to_procceed_load_page_miliseconds);
+
+    // setTimeout(function() {
+    //     enableScroll();
+    //   }, time_to_procceed_load_page_miliseconds);
+    
+      //Remove the cover as not to overlap anything
+      setTimeout(function() {
+        document.getElementById('load_cover').remove();}, time_to_procceed_load_page_miliseconds + 1000);
 }
 
 //Function run when the page is resized
@@ -166,11 +171,21 @@ logo_image.style.backgroundPosition = "0% 0%";
 addEventListener('mousemove', (event) => {});
 
 //change logo position based on mouse position
+let lastX, lastY;
+let lerp_factor = 0.3;
+
 onmousemove = (event) => { 
     var x = Math.floor(event.clientX / vw * 100);
     var y = Math.floor(event.clientY / vh * 100);
 
-    logo_image.style.backgroundPosition = x + "% " + y + "%"; 
+    const lerpedX = lastX ? lastX + (x - lastX) * lerpFactor : x;
+    const lerpedY = lastY ? lastY + (y - lastY) * lerpFactor : y;
+
+    logo_image.style.backgroundPosition = lerpedX + "% " + lerpedY + "%"; 
+    //logo_image.style.backgroundPosition = x + "% " + y + "%"; 
+
+    lastX = x;
+    lastY = y;
 }
 
 //Display the logo correctly for any display
