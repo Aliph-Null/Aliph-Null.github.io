@@ -1,6 +1,6 @@
 :root {
     --bg-color: 0, 0, 0;
-    --canvas-transparent: 50%;
+    --canvas-transparent: 0%;
     --color-saturaion: 95%;
 
     --dark-color: hsl(var(--hue), 100%, 9%);
@@ -29,7 +29,7 @@
     z-index: -1;
 
     filter: opacity(var(--canvas-transparent));
-    filter: blur(500px);
+    filter: blur(100px);
 }
 
 .canvas-wrapper{
