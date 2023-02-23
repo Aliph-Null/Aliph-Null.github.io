@@ -210,7 +210,7 @@ onmousemove = (event) => {
 
     mouse_blob.animate({
         left: event.clientX + "px", top: event.clientY + "px"
-    }, {duration: 10000, fill: "forwards"});
+    }, {duration: 60000, fill: "forwards"});
     
     if(holding_down){
         position += (onclick_pos_y - event.clientY) / scroll_speed_divider;
