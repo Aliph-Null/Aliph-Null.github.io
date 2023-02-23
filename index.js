@@ -9,6 +9,13 @@ const clicks_to_proceed = 5;    //number of clicks when loading screen goes away
 let toggled = true;             //boolean whever or not the loading screen is toggled
 const time_to_procceed_load_page_miliseconds = 10000; // 10 seconds until the website decides to load cuz no loading actually occurs
 
+function min(a, b) {
+    return a < b ? a : b;
+} 
+function max(a, b) {
+    return a > b ? a : b;
+}
+
 //Function run after the page loads
 window.onload = function onload() {
     console.log("Hello World!");
@@ -172,6 +179,23 @@ logo_image.style.backgroundPosition = "0% 0%";
 
 //Event listener for mouse movement
 addEventListener('mousemove', (event) => {});
+// Add a click event listener to the document
+addEventListener('mousedown', handlemousedown);
+document.addEventListener('mouseup', handleMouseUp);
+
+let onclick_pos_y = 0;
+
+function handlemousedown(event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+  
+    onclick_pos_y = mouseY;
+    holding_down = true;
+}
+
+function handleMouseUp(event){
+    holding_down = false;
+}
 
 //function to change logo position based on mouse position
 onmousemove = (event) => { 
@@ -188,6 +212,36 @@ onmousemove = (event) => {
         left: event.clientX + "px", top: event.clientY + "px"
     }, {duration: 10000, fill: "forwards"});
     
+    if(holding_down){
+        position += (onclick_pos_y - event.clientY) / scroll_speed_divider;
+        repositionData(position);
+    }
+}
+
+let holding_down = false;
+let scroll_speed_divider = 20;
+
+document.addEventListener('wheel', handleScroll);
+
+function handleScroll(event) {
+    position += event.deltaY;
+    repositionData(position);
+}
+
+//Things for moving the data up and down
+let position = 0;
+const div_with_data = document.querySelector('#data');
+function repositionData(y_pos){
+
+    let max_height = div_with_data.offsetHeight;
+    position = max(position, 0);
+    position = min(position, max_height);   
+
+    console.log("moving data at: " + position + " when max is " + max_height);
+
+    div_with_data.animate({
+        top: -1 * y_pos + "px"
+    }, {duration: 200, fill: "forwards"});
 }
 
 //Display the logo correctly for any display
@@ -244,3 +298,4 @@ const observer = new IntersectionObserver((entries) => {
 //variables to manage the scroll animations
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
+

@@ -5,6 +5,8 @@ section{
     width: 90%; min-height: 35vh;
     margin: 5%;
     color: white;
+
+    user-select: none;
 }
 
 .hidden{

@@ -8,6 +8,11 @@ body{
     padding: 0;
     width: 100%;
     height: max-content;
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    user-select: none;
 }
 
 .overlay {
