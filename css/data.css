@@ -10,7 +10,7 @@
     background-repeat: repeat-y;
 
     background-size: cover;
-    mix-blend-mode: color-dodge;
+    /* mix-blend-mode: color-dodge;  */
 }
 
 #overlay_img{

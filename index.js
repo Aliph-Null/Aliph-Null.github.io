@@ -159,6 +159,9 @@ function OnToggleOnTiles(){
 
 }
 
+//Blob that follows the mouse for effect
+const mouse_blob = document.querySelector('#mouse-orb');
+
 //Get elements for logo display
 const logo_image = document.querySelector('#logo_image');
 const white_circle = document.querySelector('#white_circle');
@@ -170,22 +173,21 @@ logo_image.style.backgroundPosition = "0% 0%";
 //Event listener for mouse movement
 addEventListener('mousemove', (event) => {});
 
-//change logo position based on mouse position
-let lastX, lastY;
-let lerp_factor = 0.3;
-
+//function to change logo position based on mouse position
 onmousemove = (event) => { 
     var x = Math.floor(event.clientX / vw * 100);
     var y = Math.floor(event.clientY / vh * 100);
 
-    const lerpedX = lastX ? lastX + (x - lastX) * lerpFactor : x;
-    const lerpedY = lastY ? lastY + (y - lastY) * lerpFactor : y;
+    //logo_image.style.backgroundPosition = x + "%" + y + "%";
 
-    logo_image.style.backgroundPosition = lerpedX + "% " + lerpedY + "%"; 
-    //logo_image.style.backgroundPosition = x + "% " + y + "%"; 
+    logo_image.animate({
+        backgroundPosition: x + "%" + y + "%"
+    }, {duration: 3000, fill: "forwards"});
 
-    lastX = x;
-    lastY = y;
+    mouse_blob.animate({
+        left: event.clientX + "px", top: event.clientY + "px"
+    }, {duration: 10000, fill: "forwards"});
+    
 }
 
 //Display the logo correctly for any display

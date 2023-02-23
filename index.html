@@ -12,13 +12,14 @@
     <script defer src="index.js"></script>
 </head>
 <body>
-    
-    <div class="canvas-wrapper">
+    <div id="background"></div>
+
+    <div id="mouse-orb"></div>
+
+    <div class="canvas-wrapper" id="orb">
         <canvas class="orb-canvas"></canvas>
         <script type="module" src="/js/dependencies/orb.js"></script>
     </div>
-    
-    <div id="background"></div>
 
     <div id="data">
         <section>
@@ -53,7 +54,7 @@
         </section>
     </div>
 
-   
+    
 
     <div class="loading_watermark" id="load_cover">
         <div id="tiles"></div>
