@@ -228,6 +228,28 @@ function handleScroll(event) {
     repositionData(position);
 }
 
+let lastTouchY = null;
+
+window.addEventListener('touchmove', (event) => {
+  const touchY = event.touches[0].clientY;
+  if (lastTouchY !== null) {
+    const delta = touchY - lastTouchY;
+    //console.log(delta);
+    let c_delta = delta;
+
+    if(Math.abs(delta) >= 20){
+        c_delta = 0;
+    }
+
+    position -= c_delta;
+    console.log("touch delta is " + -c_delta);
+    repositionData(position);
+  }
+  lastTouchY = touchY;
+});
+
+
+
 //Things for moving the data up and down
 let position = 0;
 const div_with_data = document.querySelector('#data');
@@ -237,7 +259,7 @@ function repositionData(y_pos){
     position = max(position, 0);
     position = min(position, max_height);   
 
-    console.log("moving data at: " + position + " when max is " + max_height);
+    //console.log("moving data at: " + position + " when max is " + max_height);
 
     div_with_data.animate({
         top: -1 * y_pos + "px"
