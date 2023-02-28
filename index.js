@@ -15,7 +15,9 @@ function min(a, b) {
 function max(a, b) {
     return a > b ? a : b;
 }
-
+function minmax(nr, a){
+    return Math.abs(nr) > a ? a : nr;
+}
 //Function run after the page loads
 window.onload = function onload() {
     console.log("Hello World!");
@@ -178,7 +180,9 @@ const black_circle = document.querySelector('#black_circle');
 logo_image.style.backgroundPosition = "0% 0%"; 
 
 //Event listener for mouse movement
-addEventListener('mousemove', (event) => {});
+addEventListener('mousemove', (event) => {
+    //console.log("moving mouse " + event.clientX + " " + event.clientY);
+});
 // Add a click event listener to the document
 addEventListener('mousedown', handlemousedown);
 document.addEventListener('mouseup', handleMouseUp);
@@ -213,13 +217,13 @@ onmousemove = (event) => {
     }, {duration: 60000, fill: "forwards"});
     
     if(holding_down){
-        position += (onclick_pos_y - event.clientY) / scroll_speed_divider;
+        position += minmax(onclick_pos_y - event.clientY, 50);
+        onclick_pos_y = event.clientY;
         repositionData(position);
     }
 }
 
 let holding_down = false;
-let scroll_speed_divider = 20;
 
 document.addEventListener('wheel', handleScroll);
 
