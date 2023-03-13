@@ -27,3 +27,22 @@ body{
     border-radius: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
+
+.my_quote{
+    font-family: brush script mt, cursive;
+    font-size: 5vw;
+}
+.quote_author_me{
+    text-align: right;  
+    font-size: 3vw;  
+}
+
+/* For phones */
+@media screen and (max-width: 600px) {
+    .my_quote{
+        font-size: 20px;
+    }
+    .quote_author_me{
+          font-size: 14px;
+    }
+}
