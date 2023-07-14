@@ -1,0 +1,40 @@
+:root{
+    --aura: rgba(220, 20, 60, 1);
+}
+
+.decoration_left{
+    left: 0;
+}
+
+.decoration_right{
+    right: 0;
+}
+
+.decoration_aura{
+    filter: drop-shadow(0 0 var(--size) var(--aura));
+
+    animation: size-animation 5s ease-in-out infinite alternate;
+
+    /* transition: 1s all; */
+}
+
+.decoration{
+    z-index: -1;
+    position: absolute;
+    width: 25vw;
+    overflow: hidden;
+}
+
+.decoration img{
+    width: 100%;
+    overflow: hidden;
+}
+
+@keyframes size-animation {
+    0% {
+        filter: drop-shadow(0 0 1rem var(--aura));
+    }
+    100% {
+        filter: drop-shadow(1cm 1cm 7rem var(--aura));
+    }
+}

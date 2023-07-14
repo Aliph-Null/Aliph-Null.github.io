@@ -1,0 +1,81 @@
+:root{
+    --base-color: rgb(0, 0, 0);
+    --color-change-percentage: 55%;
+    --color-change-stop-percentage: 95%;
+
+    --gr-color-1: rgba(255, 119, 253, 1);
+    --gr-color-2: rgba(255, 129, 223, 1);
+    --gr-color-3: rgba(17,  238, 255, 1);
+
+    --gr-anim-time: 10s;
+
+    --r1: 217deg;
+    --r2: 127deg;
+    --r3: 336deg;
+}
+
+@keyframes background-pan{
+    from{
+        background-position: 0% center;
+    }
+
+    to{
+        background-position: -200% center;
+    }
+}
+
+.my_quote{
+    font-family: 'Dancing Script', cursive;;
+    font-size: max(8vw, 32px);
+}
+
+.quote_author_me{
+    text-align: right;  
+    font-size: max(3vw, 15px);
+
+    animation: background-pan var(--gr-anim-time) linear infinite;
+
+    background: linear-gradient(
+        to right,
+        transparent 75%,
+        var(--base-color),
+        var(--base-color),
+        var(--base-color),
+        var(--base-color),
+        transparent 95%
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    white-space: nowrap;
+}
+
+.quote_gr{
+    animation: background-pan var(--gr-anim-time) linear infinite;
+    background: linear-gradient(
+        to right,
+        transparent var(--color-change-percentage),
+        var(--gr-color-1),
+        var(--gr-color-2),
+        var(--gr-color-3),
+        transparent var(--color-change-stop-percentage)
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    white-space: nowrap;
+}
+
+.top_section img{
+    position: absolute;
+    height: auto;
+    width: 100vw;
+    top: 0; left: 0;
+    z-index: -2;
+}

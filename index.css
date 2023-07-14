@@ -1,30 +1,59 @@
+@import url("/Fonts/fonts.css");
+@import url("/CssFiles/section.css");
+@import url("/CssFiles/hide_scrollbar.css");
+@import url("/CssFiles/unselectable_text.css");
+@import url("/CssFiles/header.css");
+@import url("/CssFiles/paragraph.css");
+@import url("/CssFiles/profile.css");
+
+@import url("/CssFiles/side_decorations.css");
+
+@import url("/CssFiles/cards.css");
+@import url("/CssFiles/loading.css");
+@import url("/CssFiles/butterfly.css");
+
+@import url("/CssFiles/body_background.css");
+@import url("/CssFiles/footer.css");
+
+/* Overwrite Values */
+:root{
+  /* Main frame */
+  --body-color: #0F0716;/*#001220;*/ /*rgb(25,28,41);*/
+  --base-text-color: white;
+  /* From header.css */
+  --base-color: rgb(255, 255, 255);
+  /* From paragraph.css  */
+  --base-font-size: 16px;
+  --font-size-scaler: 2vw;
+}
+
 body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: max-content;
+  margin: 0;
+  padding: 0;
+  border: none;
 
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+ */
-    user-select: none;
+  background-color: var(--body-color);
+
+  color: var(--base-text-color);
+  overflow-x: hidden;
 }
 
-.my_quote{
-    font-family: brush script mt, cursive;
-    font-size: 5vw;
+#data {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 5s forwards;
 }
-.quote_author_me{
-    text-align: right;  
-    font-size: 3vw;  
+  
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-/* For phones */
-@media screen and (max-width: 600px) {
-    .my_quote{
-        font-size: 20px;
-    }
-    .quote_author_me{
-          font-size: 14px;
-    }
+.zero{
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }

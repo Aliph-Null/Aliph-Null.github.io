@@ -1,0 +1,109 @@
+.butterfly_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200px;
+    width: 200px;
+    z-index: 999;
+  }
+  
+  .butterfly {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+  }
+  .butterfly .butterfly--wings {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 10px #FF1F37);
+  }
+  .butterfly .butterfly--wings .butterfly--wing {
+    width: 100%;
+    height: 100%;
+    margin-top: -100%;
+    -webkit-animation: 0.15s steps(5, end) infinite alternate;
+            animation: 0.15s steps(5, end) infinite alternate;
+  }
+  .butterfly .butterfly--wings .butterfly--wing + .butterfly--wing {
+    margin-top: -100%;
+  }
+  .butterfly .butterfly--wings .butterfly--wing.wing--right {
+    background: radial-gradient(ellipse at center, rgba(255, 158, 112, 0.3) 0%, rgba(255, 158, 112, 0.3) 50%);
+    -webkit-animation-name: right-wing;
+            animation-name: right-wing;
+    -webkit-clip-path: polygon(50% 50%, 80% 40%, 30% 5%);
+            clip-path: polygon(50% 50%, 80% 40%, 30% 5%);
+  }
+  @-webkit-keyframes right-wing {
+    from, 15% {
+      -webkit-clip-path: polygon(50% 50%, 80% 40%, 30% 5%);
+              clip-path: polygon(50% 50%, 80% 40%, 30% 5%);
+    }
+    to {
+      -webkit-clip-path: polygon(50% 50%, 100% 80%, 20% 100%);
+              clip-path: polygon(50% 50%, 100% 80%, 20% 100%);
+    }
+  }
+  @keyframes right-wing {
+    from, 15% {
+      -webkit-clip-path: polygon(50% 50%, 80% 40%, 30% 5%);
+              clip-path: polygon(50% 50%, 80% 40%, 30% 5%);
+    }
+    to {
+      -webkit-clip-path: polygon(50% 50%, 100% 80%, 20% 100%);
+              clip-path: polygon(50% 50%, 100% 80%, 20% 100%);
+    }
+  }
+  .butterfly .butterfly--wings .butterfly--wing.wing--left {
+    background: radial-gradient(ellipse at center, #FF1F1F 0%, #FF7070 50%);
+    -webkit-animation-name: left-wing;
+            animation-name: left-wing;
+    -webkit-clip-path: polygon(50% 50%, 100% 30%, 40% 0);
+            clip-path: polygon(50% 50%, 100% 30%, 40% 0);
+  }
+  @-webkit-keyframes left-wing {
+    from, 15% {
+      -webkit-clip-path: polygon(50% 50%, 100% 30%, 40% 0);
+              clip-path: polygon(50% 50%, 100% 30%, 40% 0);
+    }
+    to {
+      -webkit-clip-path: polygon(50% 50%, 100% 90%, 20% 100%);
+              clip-path: polygon(50% 50%, 100% 90%, 20% 100%);
+    }
+  }
+  @keyframes left-wing {
+    from, 15% {
+      -webkit-clip-path: polygon(50% 50%, 100% 30%, 40% 0);
+              clip-path: polygon(50% 50%, 100% 30%, 40% 0);
+    }
+    to {
+      -webkit-clip-path: polygon(50% 50%, 100% 90%, 20% 100%);
+              clip-path: polygon(50% 50%, 100% 90%, 20% 100%);
+    }
+  }
+  .butterfly .butterfly--glow {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.25) 0%, rgba(255, 143, 179, 0.2) 15%, rgba(252, 96, 80, 0) 72%);
+    transform: scale(0.7);
+  }
+  .butterfly:hover .butterfly--glow {
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.6) 0%, rgba(255, 112, 112, 0.4) 25%, rgba(252, 127, 80, 0) 72%);
+  }
+  .butterfly:hover .butterfly--wings .butterfly--wing {
+    -webkit-animation: 0.5s steps(5, end) infinite alternate;
+            animation: 0.5s steps(5, end) infinite alternate;
+  }
+  .butterfly:hover .butterfly--wings .butterfly--wing.wing--right {
+    -webkit-animation-name: right-wing;
+            animation-name: right-wing;
+  }
+  .butterfly:hover .butterfly--wings .butterfly--wing.wing--left {
+    -webkit-animation-name: left-wing;
+            animation-name: left-wing;
+  }

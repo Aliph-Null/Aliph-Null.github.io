@@ -1,0 +1,45 @@
+section{
+    display: grid;
+    place-items: center;
+    align-content: center;
+    width: 90%; min-height: 35vh;
+    margin: 4%;
+
+    user-select: none;
+}
+
+.opacity_hidden{
+    opacity: 0;
+    transition: all 1s;
+}
+
+.blur_hidden{
+    filter: blur(500px);
+    transition: all 1s;
+}
+
+.position_hidden_left{
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.position_hidden_right{
+    transform: translateX(+100%);
+    transition: all 1s;
+}
+
+.position_hidden_up{
+    transform: translateY(-50%);
+    transition: all 1s;
+}
+
+.position_hidden_down{
+    transform: translateY(+50%);
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0%);
+}

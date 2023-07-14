@@ -1,0 +1,27 @@
+:root{
+    --base-font-size:       12px;
+    --font-size-scaler:     0.8vw;
+
+    --h1-font-size-scaler:  2vw;
+    --h1-base-font-size:    16px;
+}
+
+.text{
+    font-size: max(var(--base-font-size), var(--font-size-scaler));
+}
+
+.h1{
+    font-size: max(var(--h1-base-font-size), var(--h1-font-size-scaler));
+}
+
+.justify{
+    text-align: justify;
+}
+
+.align_right{
+    text-align: right;
+}
+
+.align_center{
+    text-align: center;
+}

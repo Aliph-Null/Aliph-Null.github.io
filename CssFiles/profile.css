@@ -1,0 +1,45 @@
+:root{
+    --aura-color: crimson;
+    --personal-aura: #FF4545;
+    --aura-radius: 100px;
+    --top-margin: 1vh;
+    --photo-size: 25vw;
+}
+
+#profile_photo {
+    margin-top: var(--top-margin);
+    border-radius: 50%;
+
+    box-shadow: 0 0 var(--aura-radius) var(--aura-color);
+    filter: drop-shadow(0 0 0.75rem var(--personal-aura));
+    width: max(var(--photo-size), 300px);
+    aspect-ratio: 1;
+    object-fit: cover;
+
+    transition: 0.25s all;
+
+}
+
+#profile_bg_blur{
+    position: absolute;
+    margin-top: var(--top-margin);
+    border-radius: 50%;
+    width: max(var(--photo-size), 300px);
+    aspect-ratio: 1;
+    transition: 0.25s all;
+
+    background-color: rgba(255, 255, 255, 0);
+    /* filter: blur(0px); */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+@media (max-width: 600px){
+    #profile_photo{
+        width: 50dvw;
+    }
+
+    #profile_bg_blur{
+        width: 50dvw;
+    }
+}
