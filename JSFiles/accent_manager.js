@@ -30,3 +30,15 @@ function rgbToString(rgb) {
 function setRootAccents(){
     
 }
+
+function changeAccentByIndex(index){
+    bg_color  = rgbToString(hexToRgb(themes[index][0]));
+    ac1_color = rgbToString(hexToRgb(themes[index][1]));
+    ac2_color = rgbToString(hexToRgb(themes[index][2]));
+
+    
+}
+
+function changeAccentByTheme(theme){
+
+}
