@@ -11,7 +11,7 @@
 }
 
 .decoration_aura{
-    filter: drop-shadow(0 0 var(--size) var(--aura));
+    filter: drop-shadow(0 0 var(--size) var(--accent-3));
 
     animation: size-animation 5s ease-in-out infinite alternate;
 
@@ -32,9 +32,9 @@
 
 @keyframes size-animation {
     0% {
-        filter: drop-shadow(0 0 1rem var(--aura));
+        filter: drop-shadow(0 0 1rem var(--accent-3));
     }
     100% {
-        filter: drop-shadow(1cm 1cm 7rem var(--aura));
+        filter: drop-shadow(1cm 1cm 7rem var(--accent-3));
     }
 }

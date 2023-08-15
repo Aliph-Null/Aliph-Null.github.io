@@ -1,7 +1,5 @@
 //======================= variables ====================//
 
-
-
 const bg_pics = [  
     "Photos/Bgs/layered-waves-haikei-firewatch.svg",
     "Photos/Bgs/layered-waves-haikei-lawrencium.svg",
@@ -71,6 +69,9 @@ const profilePhoto = document.querySelector('#profile_photo');
 function setAccentColors(index){
     profilePhoto.style.boxShadow = `0 0 var(--aura-radius) ${accent_colors[index][0]}`;
     profilePhoto.style.filter = `drop-shadow(0 0 0.75rem ${accent_colors[index][1]})`;
+
+    console.log("Accent colors index: " + index);
+    changeAccentByIndex(index);
 }
 
 function prepare_bg_Points(){

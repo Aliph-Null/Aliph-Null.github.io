@@ -8,6 +8,15 @@ const themes = {
     "haikei":           ["#0F0716", "#6600ff", "#4facf7"]  
 };
 
+const theme_names = [
+    "firewatch",
+    "lawrencium",
+    "pinot-noir",
+    "playing with reds",
+    "royal",
+    "haikei"
+];
+
 function hexToRgb(hex) {
     // Remove the '#' symbol if present
     if (hex.startsWith('#')) {
@@ -27,18 +36,25 @@ function rgbToString(rgb) {
     return rgb.join(', ');
 }
 
-function setRootAccents(){
+function lightenRGB(rgb, factor) {
+    const [r, g, b] = rgb.map(component => Math.min(Math.round(component * factor), 255));
+    return [r, g, b];
+  }  
+
+function changeAccentByIndex(index) {
+    const bg_color = hexToRgb(themes[theme_names[index]][0]);
+    const ac1_color = hexToRgb(themes[theme_names[index]][1]);
+    const ac2_color = hexToRgb(themes[theme_names[index]][2]);
     
-}
-
-function changeAccentByIndex(index){
-    bg_color  = rgbToString(hexToRgb(themes[index][0]));
-    ac1_color = rgbToString(hexToRgb(themes[index][1]));
-    ac2_color = rgbToString(hexToRgb(themes[index][2]));
-
+    //console.log("Theme: " + themes[theme_names[index]]);
     
-}
+    // Generate a light variant for accent-3 based on accent-1
+    const lightFactor = 1.2; // Adjust this factor to control the lightness
+    const ac3_color = lightenRGB(ac2_color, lightFactor);
 
-function changeAccentByTheme(theme){
-
+    // Update CSS variables
+    document.documentElement.style.setProperty('--bg-accent', rgbToString(bg_color));
+    document.documentElement.style.setProperty('--accent-1', `rgb(${rgbToString(ac1_color)})`);
+    document.documentElement.style.setProperty('--accent-2', `rgb(${rgbToString(ac2_color)})`);
+    document.documentElement.style.setProperty('--accent-3', `rgb(${rgbToString(ac3_color)})`);
 }
