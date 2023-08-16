@@ -1,89 +1,104 @@
-@property --rotate {
-    syntax: "<angle>";
-    initial-value: 132deg;
-    inherits: false;
+/* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-  
-:root {
-    --card-height: calc(var(--card-width) * 1.5);
-    --card-width: min(43vw, calc(65vh / 1.5));
-    --bg-accent: 15, 7, 22;
-    --accent-1: rgb(203, 45, 62);
-    --accent-2: rgb(239, 71, 58);
-    --accent-3: rgb(255, 69, 69);
+
+.main_project_cards{
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card_image{
+    height: 300px;
+}
+
+img {
+    height: 100%;
+    width: auto;
+    vertical-align: middle;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
 }
 
 .card {
-    background: rgba(var(--bg-accent), 100%);
-    width: var(--card-width);
-    height: var(--card-height);
-    padding: 3px;
-    position: relative;
-    border-radius: 6px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    font-size: clamp(1rem, 5vw, 7rem);
-    color: rgba(var(--bg-accent), 100%);
-    cursor: pointer;
-    font-family: 'Times New Roman', Times, serif;
+  background-color: rgb(var(--bg-accent));
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
-    text-overflow: ellipsis;
+.card_content {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, var(--accent-1) 40%, var(--accent-3) 100%);
 }
-  
-.card:hover {
-    color: var(--accent-3);
-    background-color: rgba(var(--bg-accent), 0%);
-    transition: all 1s;
+
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
 }
-.card:hover:before, .card:hover:after {
-    animation: none;
-    opacity: 0;
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
 }
-  
-  
-.card::before {
-    content: "";
-    width: 104%;
-    height: 102%;
-    border-radius: 8px;
-    background-image: linear-gradient(
-      var(--rotate)
-      , var(--accent-3), var(--accent-2) 43%, var(--accent-1));
-      position: absolute;
-      z-index: -1;
-      top: -1%;
-      left: -2%;
-      animation: spin 2.5s linear infinite;
-}
-  
-.card::after {
-    position: absolute;
-    content: "";
-    top: calc(var(--card-height) / 6);
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale(0.8);
-    filter: blur(calc(var(--card-height) / 6));
-    background-image: linear-gradient(
-      var(--rotate)
-      , var(--accent-3), var(--accent-2) 43%, var(--accent-1));
-      opacity: 1;
-    transition: opacity .5s;
-    animation: spin 2.5s linear infinite;
-}
-  
-@keyframes spin {
-    0% {
-      --rotate: 0deg;
-    }
-    100% {
-      --rotate: 360deg;
-    }
-}
- 
