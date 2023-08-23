@@ -58,6 +58,7 @@ img {
 .cards_item {
   display: flex;
   padding: 1rem;
+  width: 100%;
 }
 
 @media (min-width: 40rem) {

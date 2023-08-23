@@ -116,11 +116,11 @@ body{
 }
 
 .download-button{
-    width: calc(min(calc(30vw), 150px));
+    width: min(30vw, 200px);
     aspect-ratio: 1;
 
     background-color: #172639;
-    margin: 30px;
+    margin: 3vw;
     border-radius: 50%;
 
     transition: all 0.5s;
@@ -135,7 +135,7 @@ body{
 
 .download-button img{
     position: relative;
-    height: 50%;
+    width: 50%;
     transition: all 0.6s;
 }
 
