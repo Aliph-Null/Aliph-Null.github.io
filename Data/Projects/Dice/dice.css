@@ -106,6 +106,7 @@ body{
     display: grid;
     grid-template-columns: 43% 5% 52%;
     grid-gap: 10px; /* Gap between items */
+    place-items: center;
 }
 
 .download-div{
