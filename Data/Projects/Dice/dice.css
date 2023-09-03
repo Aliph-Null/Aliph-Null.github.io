@@ -38,7 +38,7 @@ body{
     align-items: center; /* Center vertically */
 }
 
-.header #dice_text{
+.header #title{
     color: white;
     filter: drop-shadow(0 0 0.75rem black);
     font-size: calc(min(10rem, 15vw));

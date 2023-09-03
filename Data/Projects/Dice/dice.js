@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-document.querySelector("#dice_text").onmouseover = event => {
+document.querySelector("#title").onmouseover = event => {
   let iteration = 0;
   
   interval = setInterval(() => {

@@ -38,4 +38,4 @@ function ImplementText(language){
 }
 
 //ImplementText(browserLanguage);
-ImplementText("ro");
+ImplementText("en");

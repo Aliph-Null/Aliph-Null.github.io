@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raytracer by Aliph Null</title>
+
+    <link rel="stylesheet" href="raytracer.css">
+    <script defer src="raytracer.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="/Data/Projects/RayTracer/Cover_Back.webp" alt="" class="behind">
+        <div class="inFront" id="headerImg">
+            <div class="headerText">
+                <h1 id="title" data-value="RAYTRACER">RAYTRACER</h1>
+            </div>
+        </div>
+    </div>
+    <div class="data">
+        <div id="navigation">
+            <a href="#inspiration" class="no-decoration">Inspiration</a>
+            <a href="#journey" class="no-decoration">Journey</a>
+            <a href="#features" class="no-decoration">Features</a>
+            <a href="#result" class="no-decoration">Result</a>
+        </div>
+
+        <div class="space"></div>
+        <div class="space"></div>
+
+        <div id="inspiration">
+            <a href="https://raytracing.github.io/" target="_blank"><img src="/Data/Projects/RayTracer/Inspiration.webp"></a>
+            <div class="space"></div>
+            <p>
+                Drawing inspiration from the acclaimed <a href="https://raytracing.github.io/" target="_blank" class="link"><b> 'Ray Tracing in One Weekend' </b></a> series authored by <b>Peter Shirley</b>, <b>Trevor David Black</b> and <b>Steve Hollasch</b> our project embarks on an exciting journey into the world of ray tracing. Join us as we delve into the art and science of creating stunning visual images through the power of <b>C++</b>, building upon the wisdom and techniques shared in these two seminal books.
+            </p>
+        </div>
+
+        <div class="space"></div>
+
+        <div id="journey">
+            <div class="space"></div>
+            <h1>Ray Tracing Project Recap</h1>
+    
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (1).webp" alt="UV coordinates">
+                <p>Camera UVs are crucial in the world of ray tracing. They define how the 3D scene is mapped onto a 2D image. Think of them as the coordinates on the image plane that correspond to points in the 3D space. By manipulating these UVs, you can control the perspective, field of view, and lens effects in your ray tracer. Understanding camera UVs is essential for achieving realistic and visually appealing results in ray tracing.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (2).webp" alt="Circle">
+                <p>Rendering the first circle in a ray tracer, even without shading, is a fundamental step in the rendering pipeline. It involves determining whether each pixel on the image plane corresponds to a point inside the circle. If so, that pixel is assigned the circle's color. This basic rendering process lays the foundation for more advanced shading and lighting techniques.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (3).webp" alt="Sphere with normals">
+                <p>A sphere colored with normals is a visually striking rendering technique. It involves assigning colors to the surface of a sphere based on its normals, which are vectors perpendicular to the surface at each point. Typically, these colors represent the direction of each normal vector, creating a vibrant and dynamic visual effect. This approach is often used in computer graphics to highlight surface details and enhance the realism of 3D objects in scenes.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (4).webp" alt="First material">
+                <p>The first diffuse material, commonly known as Lambertian, is a fundamental concept in computer graphics. It describes a type of material that scatters incoming light uniformly in all directions. Lambertian materials have a matte appearance and are widely used for modeling surfaces with no specular reflections. Understanding Lambertian materials is essential for implementing realistic shading in 3D rendering.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (5).webp" alt="2 Metallic spheres">
+                <p>Metallic materials in computer graphics are characterized by their ability to reflect light like metals. These materials often include parameters like a fuzziness value and color to control their appearance. The fuzziness value determines how rough or polished the surface is, affecting the sharpness of reflections. The color of the material influences the tint of the reflections, allowing you to create a wide range of metallic looks in your 3D scenes.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (6).webp" alt="Glass material, camera position, rotation, depth of field and blur">
+                <p>Dielectric materials, such as glass, play a significant role in 3D rendering. They are transparent materials that refract and reflect light. When rendering scenes with dielectric materials like glass, factors like camera position, aperture, and focal length become crucial. The camera position determines the viewpoint, while the aperture and focal length affect depth of field and focus, impacting how light interacts with and passes through dielectric surfaces, resulting in realistic glass effects.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (7).webp" alt="Perlin noise Material and light material">
+                <p>Perlin noise materials and emissive materials/lights are powerful tools in computer graphics. Perlin noise materials create visually interesting textures by perturbing surface properties with controlled randomness, adding realism and detail to objects. Emissive materials or lights simulate objects that emit their own light, such as light bulbs or glowing surfaces. These are essential for creating realistic lighting scenarios and adding atmospheric effects to scenes.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (8).webp" alt="Cornell's box">
+                <p>Cornell's box is a standard test for raytracers in computer graphics. It's a simple, controlled 3D scene consisting of a small room with differently colored walls and a few basic objects. This scene is used to assess the capabilities of raytracing algorithms, including their ability to handle shadows, reflections, and refractions accurately. Cornell's box provides a benchmark for evaluating the realism and correctness of raytracing implementations.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (9).webp" alt="Cornell's box with volume boxes with even density">
+                <p>A volume material with even density is a crucial concept in computer graphics. It represents a 3D region within a scene filled with a material that has uniform density throughout. Such materials are used to simulate various effects, such as fog, smoke, or other participating media. Understanding how to handle volume materials with even density is essential for creating realistic atmospheric and environmental effects in raytraced scenes.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="/Data/Projects/RayTracer/Step (10).webp" alt="Earth render">
+                <p>Image projection onto a sphere is a common technique in computer graphics. It involves mapping a 2D image onto the surface of a 3D sphere. This process allows you to texture a spherical object, such as the Earth or a planet, with a flat image. Properly projecting images onto spheres is essential for creating realistic and visually appealing images.</p>    
+            </div>
+        </div>
+
+        <div class="space"></div>
+        
+        <div id="features">
+            <h1>Features:</h1>
+            <ul class="no-decoration">
+                <li><a href="#Multithreading"><h3>Multithreading</h3></a></li>
+                <li><a href="#LiveWindowRendering"><h3>Live Window Rendering</h3></a></li>
+                <li><a href="#PNGfinalRender"><h3>PNG render</h3></a></li>
+                <li><a href="#Configuration"><h3>Configuration</h3></a></li>
+            </ul>
+            <div class="smallspace"></div>
+            <div class="image-container image-container-vertical">
+                <h2 id="Multithreading">Multithreading</h2>
+                <img src="/Data/Projects/RayTracer/MultiThreading.webp" alt="Multithreading">
+                <p>Multithreading is a crucial feature in modern programming, especially in complex applications like raytracers. When developing a raytracer, it's beneficial to utilize all available threads except one to maximize performance and efficiency. This approach ensures that your program fully utilizes the computational power of the host system while leaving one thread available for essential system-level tasks, ensuring the stability and responsiveness of the computer.
+                    <br><br>
+                By dedicating all but one thread to ray tracing calculations, you achieve a balance between high performance and system responsiveness. This approach prevents the program from monopolizing system resources, which could lead to unresponsiveness or crashes. It also enables users to perform other tasks concurrently, maintaining a smooth user experience.
+                    <br><br>
+                In summary, multithreading in raytracing, with one thread reserved for system tasks, optimizes performance and responsiveness, providing a better overall user experience and system stability.</p>
+                
+                <div class="smallspace"></div>
+                
+                <h2 id="LiveWindowRendering">Live Window rendering</h2> 
+                <p>Using Windows API* <br> Between 0 and 2 seconds slower than without live window rendering
+                *Small bug | because the window might become unresponsive during rendering, after it finishes the buffer is copied whole to the window, on *ODD or uncommon resolutions <sup>(ex: 252 x 255)</sup> it will be displayed incorrectly, even though the final render is ok.</p>
+                <img src="/Data/Projects/RayTracer/MinorBug.webp" alt="MinorBug">
+
+                <div class="smallspace"></div>
+
+                <h2 id="PNGfinalRender">PNG Render</h2>
+                <p>Rendering to a PNG format is a common practice in raytracing. In the rendering process, the program typically creates a buffer to store the image data, which can be easily compared to PPM images due to its simplicity. After rendering the scene, this buffer is converted into a PNG image file named "render.png." The advantage of using PNG format is its support for lossless compression, which results in smaller file sizes without sacrificing image quality. After the conversion, the program opens the "render.png" file, allowing users to view and save the rendered image with ease.</p><br>
+                <p>For this the source code | program uses <b>libpng</b> installed via <b>vcpkg</b> </p>
+                <p>To install libpng on Windows using vcpkg, follow these steps:</p>
+
+                <ol>
+                  <li>Ensure you have vcpkg installed. If not, download it from <a href="https://github.com/microsoft/vcpkg" target="_blank">GitHub</a>.</li>
+                  <li>Open a command prompt and navigate to your vcpkg directory.</li>
+                  <li>Run the following command to integrate vcpkg with Visual Studio:
+                
+                  <pre><code>.\vcpkg integrate install</code></pre></li>
+                
+                  <li>Now, install libpng using vcpkg by running this command:
+                
+                  <pre><code>.\vcpkg install libpng</code></pre></li>
+                </ol>
+
+                <p>Vcpkg will manage the installation and dependencies for you. After installation, you can use libpng in your C++ project within Visual Studio.</p>
+
+                <div class="smallspace"></div>
+
+                <h2 id="Configuration">Configuration</h2>
+                <p>For a better explanation, examples and options use the command <code>help</code> in the program's console</p> and explored the configurations coming with the program<br>
+                <p>The program's configuration is designed to be incredibly user-friendly and can be easily adjusted using a simple text editor like Notepad. This approach makes it accessible for users of all levels of technical expertise to customize the rendering settings, camera parameters, and scene definitions effortlessly.</p>
+                <ul>
+                  <li>Uses 3 input files: "<i>config.txt</i>" "<i>camera.txt</i>" and "<i>scene.scene</i>"</li>
+                  <li>"<i>config.txt</i>" defines basic image properties, camera configuration, scene, and special scenes.</li>
+                  <li>"<i>camera.txt</i>" contains camera settings, including position, focus, aperture, and more.</li>
+                  <li>"<i>scene.scene</i>" is the scene file where objects are defined with materials and properties.</li>
+                  <li>Supports drag-and-drop of "<i>config.txt</i>" for flexible input.</li>
+                  <li>Offers preloaded scenes like "earth" and "cornell_box."</li>
+                  <li>Supports various material types, including Lambertian, dielectric, normal, metal, and more.</li>
+                  <li>Detailed object definition in the scene file with positions, radii, and material properties.</li>
+                </ul>
+
+                <p>Yes, you can create your own scenes <sub>(currently supports only sphere as objects)</sub></p>
+            </div>
+        </div>
+
+        <div class="space"></div>
+        
+        <div id="result">
+            <h1>Result</h1>
+            <div class="smallspace"></div>
+            <div class="simpleImageSpace">
+                <img src="/Data/Projects/RayTracer/Failure_hayaa.webp" alt="Fail">
+                <p>While the journey wasn't without its challenges and debugging, I ultimately succeeded in rendering this image at a resolution of <b>800 x 800</b> in <b>16,274 seconds</b> <i><b>4.5 hours</b></i>. This experience taught me valuable lessons and improved my skills.</p>
+                <img src="/Data/Projects/RayTracer/Final.webp" alt="FinalRender">
+                <p>A future idea is to explore GPU integration for faster rendering times and enhance the program's user interface. Drawing inspiration from <a href="https://www.youtube.com/@TheCherno" target="_blank"><b>TheCherno's tutorial series</b></a>, which utilizes the <a href="https://vulkan.lunarg.com/" target="_blank">Vulkan SDK</a> and the Walnut template for the window based on ImGUI, such improvements could result in a more responsive and user-friendly UI and UX.</p>
+            </div>
+            <div class="space"></div>
+        </div>
+    </div>
+
+    <div class="download-div">
+        <a href="https://github.com/Aliph-Null/RayTracer" class="download-button"><img src="/Photos/icons/c++.svg" alt="">Source Code</a>
+        <a href="https://github.com/Aliph-Null/RayTracer/releases/tag/v0.1" class="download-button"><img src="/Photos/icons/windows-174-svgrepo-com.svg" alt="">Windows x64</a>
+    </div>
+</body>
+</html>

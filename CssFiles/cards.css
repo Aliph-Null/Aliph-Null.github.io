@@ -20,13 +20,20 @@
 }
 
 .card_image{
-    height: 300px;
+  height: 300px;
+  overflow: hidden;
 }
 
-img {
-    height: 100%;
-    width: auto;
-    vertical-align: middle;
+.card_image_width img{
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.card_image img {
+  height: 100%;
+  width: auto;
+  vertical-align: middle;
 }
 
 .btn {
@@ -85,6 +92,7 @@ img {
 .card_content {
   padding: 1rem;
   background: linear-gradient(to bottom left, var(--accent-1) 40%, var(--accent-3) 100%);
+  flex: 1;
 }
 
 .card_title {
