@@ -146,7 +146,7 @@ body{
    4px 4px 5px 0px rgba(0,0,0,.1);
    
     color: #0F0716;
-    font-size: 2vw;
+    font-size: 24px;
 
     height: max(75px, 1vw); width: max(200px, 2.5vw);
     padding: 10px; margin: 20px;
