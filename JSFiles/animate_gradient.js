@@ -1,7 +1,7 @@
 //How smooth should this function run (aka FPS)
 var Smoothness = 30;
 //Speed of change
-var change_speed = 1 / 10000;
+var change_speed = 5 / 10000;
 
 // Define default red, green, and blue offset values
 const DR = 217;
@@ -25,9 +25,7 @@ function updateColors() {
 
 function isLightMode() {
   // Use window.matchMedia to check if the preferred color scheme is light
-  const isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-
-  return isLight;
+  return window.matchMedia('(prefers-color-scheme: light)').matches;
 }
 
 //I have decided that this looks good only in dark mode

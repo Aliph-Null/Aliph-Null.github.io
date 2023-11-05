@@ -1,5 +1,5 @@
 var isLoaded = false;
-
+var deleteLoadingScreenAfterMillis = 1000;
 //Function run after the page loads
 window.onload = function onload() {
     //console.clear();
@@ -45,6 +45,6 @@ window.addEventListener('load', function() {
         loadingElement.remove();
         isLoaded = true;
         window.scrollTo(0, 0);
-      }, 5000);
+      }, deleteLoadingScreenAfterMillis);
     }
 });

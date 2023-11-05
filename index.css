@@ -42,7 +42,7 @@ body{
 
 #data {
   opacity: 0;
-  animation: fadeIn 1s ease-in-out 5s forwards;
+  animation: fadeIn 1s ease-in-out 1s forwards;
 }
   
 @keyframes fadeIn {

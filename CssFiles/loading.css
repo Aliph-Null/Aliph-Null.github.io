@@ -9,7 +9,7 @@
     height: 100vh;
     width: 100vw;
     opacity: 1;
-    transition: opacity 0.5s;
+    transition: opacity 1s;
 }
 
 .loading_gr{
@@ -49,7 +49,7 @@
 
 /* Apply animations after specific delays */
 #loading {
-    animation: fadeOut 5s ease-in-out forwards;
+    animation: fadeOut 1s ease-in-out forwards;
 }
 
 #name {
