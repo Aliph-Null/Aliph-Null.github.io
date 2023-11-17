@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Buttons</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #3498db;
+    }
+
+    .button-container {
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    #button1 {
+      background-color: #2980b9;
+    }
+
+    #button2 {
+      background-color: #27ae60;
+    }
+
+    #button3 {
+      background-color: #e74c3c;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+<div class="button-container">
+  <button id="button1" onclick="downloadFile('Romanian Paper.docx')">Descarcă publicația de Bodrug Denis</button>
+  <button id="button2" onclick="downloadFile('English Paper.docx')">Download paper by Bodrug Denis</button>
+  <button id="button3" onclick="downloadFile('Study Data from Sparkvue.rar')">Download Data.rar</button>
+</div>
+
+<script>
+  function downloadFile(filePath) {
+    window.location.href = filePath;
+  }
+</script>
+
+</body>
+</html>
