@@ -1,61 +1,236 @@
-@import url("/Fonts/fonts.css");
-@import url("/CssFiles/section.css");
-@import url("/CssFiles/hide_scrollbar.css");
-@import url("/CssFiles/unselectable_text.css");
-@import url("/CssFiles/header.css");
-@import url("/CssFiles/paragraph.css");
-@import url("/CssFiles/profile.css");
-
-@import url("/CssFiles/side_decorations.css");
-
-@import url("/CssFiles/cv_card.css");
-@import url("/CssFiles/cards.css");
-
-@import url("/CssFiles/loading.css");
-@import url("/CssFiles/butterfly.css");
-
-@import url("/CssFiles/body_background.css");
-@import url("/CssFiles/footer.css");
-
-/* Overwrite Values */
 :root{
-  /* Main frame */
-  --body-color: #0F0716;/*#001220;*/ /*rgb(25,28,41);*/
-  --base-text-color: white;
-  /* From header.css */
-  --base-color: rgb(255, 255, 255);
-  /* From paragraph.css  */
-  --base-font-size: 16px;
-  --font-size-scaler: 2vw;
+  --gr-1: 91,231,169,1;
+  --gr-2: 248,254,133,1;
+  --gr-3: 255,189,103,1;
+  --gr-4: 255,100,100,1;
+
+
 }
 
 body{
+  height: 100vh;
+  overflow: hidden;
+  /* background: linear-gradient(0deg, rgba(var(--gr-1)) 0%, rgba(var(--gr-2)) 32%, rgba(var(--gr-3)) 70%, rgba(var(--gr-4)) 100%); */
+  background-color: black;
   margin: 0;
   padding: 0;
-  border: none;
 
-  background-color: var(--body-color);
-
-  color: var(--base-text-color);
-  overflow-x: hidden;
+  /* background-color: rgb(20, 20, 20); #222021 */
 }
 
-#data {
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out 1s forwards;
+div{
+  /* border: red 1px solid; */
 }
+
+#main_cloud{
+  position: absolute;
+  top: 0; left: 0;
+  background-image: url("/Photos/Elements/Cloud 1.png");
+  height: 100vh; width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* mix-blend-mode:multiply; */
+  filter: opacity(20%) brightness(90%) saturate(100%) contrast(100%);
+  z-index: -2;
+  transition: background-position 800ms;
+}
+
+#background-image{
+  position: absolute;
+  top: 0; left: 0;
+  background-image: url("/Photos/Bgs/image (16).png");
+  height: 100vh; width: 100vw;
+  background-size: cover;
+  /* mix-blend-mode:multiply; */
+  filter: brightness(90%) saturate(150%) contrast(150%);
+  transition: filter 800ms;
+  z-index: -3;
+}
+
+#main {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh; /* 80% of the viewport height */
+  padding: 5% 5%;
+  display: flex;
+}
+
+#left_menu {
+  flex: 2; /* Takes 2/5 of the available space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#menu-items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  height: 90%;
+  width: 90%;
+  border-radius: 1vw;
+
+  background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.menu-item{
+  color: whitesmoke;
+  font-size: clamp(1.5rem, 3vw, 4rem);
+  font-family: "Ibarra Real Nova", serif;
+  display: block;
+  text-decoration: none;
+  padding: clamp(0.25rem, 0.5rem, 1 rem) 0rem;
+  transition: opacity 400ms ease;
+  margin: auto;
+  margin-left: 7%;
+  margin-right: 1%;
+}
+
+#menu-items:hover > .menu-item{
+  opacity: 0.3;
+}
+
+#left_menu:hover ~ #background-image{
+filter: brightness(60%) saturate(130%) contrast(140%);
+}
+
+#menu-items:hover > .menu-item:hover{
+  opacity: 1;
+}
+
+#right_photo_div {
+  flex: 3; /* Takes 3/5 of the available space */
+  margin-left: 5%; /* Space between the two divs */
+}
+
+#right_photo_div #photo_backdrop{
   
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 3/4;
+  margin-left: auto;
+
+  background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+
+  border-radius: 0 500px 0 500px;
 }
 
-.zero{
-  height: 0;
-  width: 0;
-  overflow: hidden;
+#right_photo_div img{
+  height: 120%;
+  width: auto;
+  margin: auto;
+  top: 0; left: 0;
+}
+
+#menu-background-pattern{
+  height: 100vh;
+  width: 100vw;
+
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 9%,
+    transparent 9%
+  );
+  background-position: 0% 0%;
+  background-size: 12vmin 12vmin;
+
+  position: absolute;
+  left: 0; top: 0;
+  z-index: -1;
+  transition: opacity 800ms ease, background-size 800ms ease, background-position 800ms ease;
+}
+
+#left_menu:hover ~ #menu-background-pattern{
+  background-size: 10vmin 10vmin;
+}
+
+#main[data-active-index="0"] > #menu-background-pattern{
+  background-position: 0% -20%;
+}
+
+#main[data-active-index="1"] > #menu-background-pattern{
+  background-position: 0% -40%;
+}
+
+#main[data-active-index="2"] > #menu-background-pattern{
+  background-position: 0% -60%;
+}
+
+#main[data-active-index="3"] > #menu-background-pattern{
+  background-position: 0% -80%;
+}
+
+#main[data-active-index="4"] > #menu-background-pattern{
+  background-position: 0% -100%;
+}
+
+#main[data-active-index="5"] > #menu-background-pattern{
+  background-position: 0% -120%;
+}
+
+#main[data-active-index="0"] > #main_cloud{
+  background-position: 0% -20%;
+}
+
+#main[data-active-index="1"] > #main_cloud{
+  background-position: 0% -15%;
+}
+
+#main[data-active-index="2"] > #main_cloud{
+  background-position: 0% -10%;
+}
+
+#main[data-active-index="3"] > #main_cloud{
+  background-position: 0% -5%;
+}
+
+#main[data-active-index="4"] > #main_cloud{
+  background-position: 0% 0%;
+}
+
+#main[data-active-index="5"] > #main_cloud{
+  background-position: 0% 5%;
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+  #main {
+    flex-direction: column;
+  }
+
+  #left_menu {
+    order: 0;
+    flex: 1;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 30vh;
+  }
+
+  #right_photo {
+    margin-left: 0;
+  }
+
+  #menu-items{
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  #right_photo_div img{
+    bottom: 0;
+  }
+
+  .menu-item{
+    margin-left: 7%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  body{
+    overflow: auto;
+    overflow-x: hidden;
+  }
 }

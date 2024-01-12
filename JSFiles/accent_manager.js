@@ -58,3 +58,5 @@ function changeAccentByIndex(index) {
     document.documentElement.style.setProperty('--accent-2', `rgb(${rgbToString(ac2_color)})`);
     document.documentElement.style.setProperty('--accent-3', `rgb(${rgbToString(ac3_color)})`);
 }
+
+changeAccentByIndex(4);

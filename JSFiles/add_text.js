@@ -33,9 +33,12 @@ function ImplementText(language){
 
     for(let i = 0; i < current_array.length; i++){
         const text_id = "text" + i;
-        document.getElementById(text_id).innerHTML = current_array[i];
+        if (document.getElementById(text_id).innerHTML == "") document.getElementById(text_id).innerHTML = current_array[i];
     }
 }
 
-//ImplementText(browserLanguage);
-ImplementText("en");
+if (typeof forcedLanguage !== 'undefined') {
+    ImplementText(forcedLanguage)
+}else{
+    ImplementText(browserLanguage)
+}

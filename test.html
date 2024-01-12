@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <style>
+      @keyframes slidy {
+        0% {
+          left: 0%;
+        }
+        50% {
+          left: 0%;
+        }
+        100% {
+          left: -100%;
+        }
+      }
+
+      body {
+        margin: 0;
+      }
+      div#slider {
+        overflow: hidden;
+      }
+      div#slider figure img {
+        width: 20%;
+        float: left;
+      }
+      div#slider figure {
+        position: relative;
+        width: 500%;
+        margin: 0;
+        left: 0;
+        text-align: left;
+        font-size: 0;
+        animation: 8s slidy infinite;
+      }
+    </style>
+
+    <div id="slider">
+      <figure>
+        <img src="/Data/Projects/Dice/Cover.webp" alt />
+        <img src="/Data/Projects/RayTracer/Final.webp" alt />
+        <img src="/Photos/Bgs/image (16).png" alt />
+      </figure>
+    </div>
+  </body>
+</html>

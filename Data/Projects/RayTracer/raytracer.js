@@ -30,3 +30,23 @@ window.addEventListener('scroll', function() {
       iteration += 1 / 4;
     }, 50);
   }
+
+  function changeFavicon() {
+    // Array of favicon filenames
+    const faviconList = Array.from({ length: 25 }, (_, index) => `Favicon/f${index}.webp`);
+
+    let currentIndex = 0;
+
+    // Function to update the favicon
+    function updateFavicon() {
+        const favicon = document.getElementById('favicon');
+        favicon.href = faviconList[currentIndex];
+        currentIndex = (currentIndex + 1) % faviconList.length;
+    }
+
+    // Set interval to periodically update the favicon
+    setInterval(updateFavicon, 100); // Change every 1000 milliseconds (1 second)
+}
+
+// Call the function to start changing the favicon
+changeFavicon();

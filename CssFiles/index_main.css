@@ -1,0 +1,61 @@
+@import url("/Fonts/fonts.css");
+@import url("/CssFiles/section.css");
+@import url("/CssFiles/hide_scrollbar.css");
+@import url("/CssFiles/unselectable_text.css");
+@import url("/CssFiles/header.css");
+@import url("/CssFiles/paragraph.css");
+@import url("/CssFiles/profile.css");
+
+@import url("/CssFiles/side_decorations.css");
+
+@import url("/CssFiles/cv_card.css");
+@import url("/CssFiles/cards.css");
+
+@import url("/CssFiles/loading.css");
+@import url("/CssFiles/butterfly.css");
+
+@import url("/CssFiles/body_background.css");
+@import url("/CssFiles/footer.css");
+
+/* Overwrite Values */
+:root{
+  /* Main frame */
+  --body-color: #0F0716;/*#001220;*/ /*rgb(25,28,41);*/
+  --base-text-color: white;
+  /* From header.css */
+  --base-color: rgb(255, 255, 255);
+  /* From paragraph.css  */
+  --base-font-size: 16px;
+  --font-size-scaler: 2vw;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  background-color: var(--body-color);
+
+  color: var(--base-text-color);
+  overflow-x: hidden;
+}
+
+#data {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 1s forwards;
+}
+  
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.zero{
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}

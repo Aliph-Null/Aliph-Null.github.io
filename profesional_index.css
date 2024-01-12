@@ -1,0 +1,345 @@
+:root{
+    --scrollbar-color: hsl(0, 65%, 50%);
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#intro {
+    z-index: 9999;
+    position: fixed;
+    background-color: #333;
+    color: whitesmoke;
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.center-text {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
+}
+
+.big-name{
+    font-size: 78px;
+}
+
+.medium-name{
+    font-size: 48px;
+}
+
+.header {
+    transition: height 0.5s ease-in-out;
+}
+
+#header {
+    position: relative;
+    height: 100vh;
+    background: url('Photos/Bgs/image.png') center/cover fixed no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.overlay {
+    width: 300px;
+    height: 145px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent dark overlay */
+    color: #fff;
+}
+
+.center-text {
+    text-align: center;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.center-text p{
+    display: inline;
+    margin-bottom: 5px;
+}
+
+.center-text div{
+    display: inline-block;
+}
+
+.overlay h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.console_green{
+    color: rgb(102, 255, 102);
+}
+
+.console_orange{
+    color: rgb(255, 176, 0);
+}
+
+.blinking-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 15px;
+    background-color: #fff;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 0;
+    }
+    25%, 75% {
+        opacity: 1;
+    }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555; /* Default color */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #333; /* Color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-color); /* Color of the scrollbar thumb on hover */
+}
+
+#about_me {
+    margin-top: 80px;
+    padding: 50px 20px;
+    text-align: center;
+    color: #333;
+}
+
+#about_me h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 52px;
+    margin-bottom: 20px;
+    color: hsl(10, 75%, 60%);
+}
+
+#about_me p {
+    font-size: 22px;
+    line-height: 1.6;
+    color: #333;
+    width: 70%;
+    margin: auto;
+}
+
+#skills {
+    margin-top: 50px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: row;
+    height: 36px;
+    width: 65%;
+    margin: auto;
+    margin-top: 17px;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+.skill-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 120px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px 0px 0px 4px;
+}
+
+.skill-bar {
+    height: 100%;
+    background-color: hsl(10, 75%, 55%);
+    border-radius: 0px 4px 4px 0px;
+}
+
+.skill-percentage {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+    padding-right: 8px;
+    color: #999;
+}
+
+.sk1{
+    background-color: #dd1e2e;
+}
+
+.sk1-b{
+    background-color: #DD1E2Fcc;
+    width: calc(100% - 110px - 3%);
+}
+
+.sk2{
+    background-color: #EBB035;
+}
+
+.sk2-b{
+    background-color: #EBB035cc;
+    width: calc(100% - 110px - 15%);
+}
+
+.sk3{
+    background-color: hsl(150, 60%, 40%);
+}
+
+.sk3-b{
+    background-color: hsl(150, 60%, 50%);
+    width: calc(100% - 110px - 40%);
+}
+
+.sk4{
+    background-color: hsl(220, 60%, 50%);
+}
+
+.sk4-b{
+    background-color: hsl(220, 60%, 60%);
+    width: calc(100% - 110px - 60%);
+}
+
+.sk5{
+    background-color:hsl(280, 60%, 40%);
+}
+
+.sk5-b{
+    background-color: hsl(280, 60%, 50%);
+    width: calc(100% - 110px - 80%);
+}
+
+section{
+    min-height: 50svh;
+}
+
+.projects_on_display{
+    margin-top: min(20vh, 50vw);
+    display: flex;
+    flex-direction: row;
+
+    padding: calc(min(5vw, 1.5rem));
+
+    align-items: center;
+    justify-content: center;
+}
+
+.projects_on_display lottie-player{
+    flex: 1; /* Takes 1/3 of the available width */
+    max-width: 33.33%; /* Ensure the image doesn't exceed 1/3 */
+}
+
+.projects_on_display p {
+    flex: 2; /* Takes 2/3 of the available width */
+    margin: 0; /* Remove default margin from the paragraph */
+    text-align: justify;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    .projects_on_display {
+        flex-direction: column;
+    }
+
+    .projects_on_display lottie-player,
+    .projects_on_display p {
+        flex: 1; /* Each takes full width in column layout */
+        max-width: 100%; /* Reset max-width for column layout */
+        font-size: 1.2rem;
+    }
+
+    .skill{
+        width: 90%;
+    }
+}
+
+p a {
+    color: #0077cc; /* Link color */
+    text-decoration: none; /* Remove default underline */
+    font-weight: bold; /* Make the text bold */
+}
+
+p a:hover {
+    text-decoration: underline; /* Underline the link on hover */
+}
+
+/* Additional styles for visited links */
+p a:visited {
+    color: #0077cc; /* Link color */
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #227fc1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transform: scale(2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #166790;
+    transform: scale(2.1);
+}
+
+.download-icon {
+    margin-right: 5px;
+}
+
+.cv{
+    margin-top: 15svh;
+    height: 30svh;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.zero {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+footer{
+    overflow: hidden;
+}
