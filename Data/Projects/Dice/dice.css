@@ -1,163 +1,183 @@
 @import url("/CssFiles/hide_scrollbar.css   ");
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
-body{
-    padding: 0;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
 
-    background: linear-gradient(180deg, white 25%, whitesmoke 90%, rgba(15,7,22, 0.4) 100%);
+  background: linear-gradient(
+    180deg,
+    white 25%,
+    whitesmoke 90%,
+    rgba(15, 7, 22, 0.4) 100%
+  );
 }
 
 /* Header */
-.header{
-    width: 100%;
-    background-color: black;
+.header {
+  width: 100%;
+  background-color: black;
 }
 
-.header .behind{
-    width: 100%;
-    filter: blur(15px) brightness(80%);
+.header .behind {
+  width: 100%;
+  filter: blur(15px) brightness(80%);
 }
 
-.header .inFront{
-    top: 10vw;
-    position: absolute;
-    width: calc(100%);
-    background-image: url("/Data/Projects/Dice/Cover.webp");
-    background-position: 0% 5%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 33vw;
-    overflow: hidden;
-    filter: drop-shadow(0 0 0.75rem black);
+.header .inFront {
+  top: 10vw;
+  position: absolute;
+  width: calc(100%);
+  background-image: url("/Data/Projects/Dice/Cover.webp");
+  background-position: 0% 5%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 33vw;
+  overflow: hidden;
+  filter: drop-shadow(0 0 0.75rem black);
 
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
-.header #title{
-    color: white;
-    filter: drop-shadow(0 0 0.75rem black);
-    font-size: calc(min(10rem, 15vw));
-    font-family: "Space Mono", monospace;
+.header #title {
+  color: white;
+  filter: drop-shadow(0 0 0.75rem black);
+  font-size: calc(min(10rem, 15vw));
+  font-family: "Space Mono", monospace;
 }
 
-.readMore{
-    font-size: large;
-    padding: 5rem;
+.readMore {
+  font-size: large;
+  padding: 5rem;
 }
 
 .no-decoration {
-    /* Resetting styles */
-    list-style: none;
-    text-decoration: none;
-    color: inherit; /* Inherit text color from the parent */
-    background-color: transparent; /* Remove background color */
-    border: none; /* Remove border */
-    cursor: pointer; /* Change cursor to indicate interactivity *//
+  /* Resetting styles */
+  list-style: none;
+  text-decoration: none;
+  color: inherit; /* Inherit text color from the parent */
+  background-color: transparent; /* Remove background color */
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to indicate interactivity */
 }
 
-.inline{
-    display: inline;
+.inline {
+  display: inline;
 }
 
 .wiki-link {
-    color: #0645ad; /* Wikipedia link color */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Make the link bold */
+  color: #0645ad; /* Wikipedia link color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make the link bold */
 }
 
 .wiki-link:hover {
-    text-decoration: underline; /* Add underline on hover */
+  text-decoration: underline; /* Add underline on hover */
 }
 
 .wiki-link::after {
-    content: " (Wikipedia)"; /* Add a pseudo-element with a label */
-    font-size: 40%; /* Adjust the font size */
-    color: #888; /* Label color */
+  content: " (Wikipedia)"; /* Add a pseudo-element with a label */
+  font-size: 40%; /* Adjust the font size */
+  color: #888; /* Label color */
 }
 
-.dice-list{
-    list-style: none; /* Remove default bullets */
-    padding-left: 0; /* Remove default padding */
+.dice-list {
+  list-style: none; /* Remove default bullets */
+  padding-left: 0; /* Remove default padding */
 }
 
-.dice-list li::before{
-    content: "🎲"; /* Emoji */
-    margin-right: 8px; /* Space between emoji and text */
+.dice-list li::before {
+  content: "🎲"; /* Emoji */
+  margin-right: 8px; /* Space between emoji and text */
 }
 
-.space{
-    height: calc(min(5vh, 5vw));
+.space {
+  height: calc(min(5vh, 5vw));
 }
 
 .gradient-line {
-    position: relative;
-    width: 1px;
-    height: 80%;
-    top: 10%;
-    background: linear-gradient(to bottom, transparent, #0F0716, transparent);
+  position: relative;
+  width: 1px;
+  height: 80%;
+  top: 10%;
+  background: linear-gradient(to bottom, transparent, #0f0716, transparent);
 }
 
-.details-grid-container{
-    display: grid;
-    grid-template-columns: 43% 5% 52%;
-    grid-gap: 10px; /* Gap between items */
-    place-items: center;
+.details-grid-container {
+  display: grid;
+  grid-template-columns: 43% 5% 52%;
+  grid-gap: 10px; /* Gap between items */
+  place-items: center;
 }
 
-.download-div{
-    display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center; /* Vertical centering */
-    width: 100%;
+.download-div {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  width: 100%;
 }
 
-.download-button{
-    width: min(30vw, 200px);
-    aspect-ratio: 1;
+.download-button {
+  width: min(30vw, 200px);
+  aspect-ratio: 1;
 
-    background-color: #172639;
-    margin: 3vw;
-    border-radius: 50%;
+  background-color: #172639;
+  margin: 3vw;
+  border-radius: 50%;
 
-    transition: all 0.5s;
+  transition: all 0.5s;
 
-    display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center; /* Vertical centering */
-    flex-direction: column; /* Switch to single column layout */
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  flex-direction: column; /* Switch to single column layout */
 
-    color: whitesmoke;
+  color: whitesmoke;
 }
 
-.download-button img{
-    position: relative;
-    width: 50%;
-    transition: all 0.6s;
+.download-button img {
+  position: relative;
+  width: 50%;
+  transition: all 0.6s;
 }
 
-.download-button img:hover{
-    filter: drop-shadow(0 0 1rem #6600ff);
+.download-button img:hover {
+  filter: drop-shadow(0 0 1rem #6600ff);
 }
 
-.download-button:hover{
-    filter: drop-shadow(0 0 1rem #3F5756);
+.download-button:hover {
+  filter: drop-shadow(0 0 1rem #3f5756);
 }
 
+.dice-images {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* 3 columns, each taking equal space */
+  gap: 20px; /* Space between images */
+  padding: 20px; /* Padding around the grid */
+}
 
+.dice-images img {
+  width: 100%; /* Images fill their grid cells */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for a nice touch */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
 
 @media (max-width: 900px) {
-    .details-grid-container {
-        grid-template-columns: 100%; /* Switch to single column layout */
-    }
+  .details-grid-container {
+    grid-template-columns: 100%; /* Switch to single column layout */
+  }
 }
 
 @media (max-width: 450px) {
-    .download-div {
-        flex-direction: column; /* Switch to single column layout */
-    }
+  .download-div {
+    flex-direction: column; /* Switch to single column layout */
+  }
 }

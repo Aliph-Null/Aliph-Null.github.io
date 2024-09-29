@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <style>
+      @font-face {
+        font-family: "Roboto Mono";
+        src: url("/Data/Projects/Counter Program/RobotoMono-VariableFont_wght.ttf")
+          format("truetype"); /* Adjust the path accordingly */
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      * {
+        min-width: 0;
+        min-height: 0;
+        box-sizing: border-box;
+
+        border: red 1px solid;
+      }
+
+      body {
+        font-family: "Roboto Mono", monospace;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30vh;
+      }
+
+      .counter {
+        margin-top: 15vh;
+        height: max-content;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #c {
+        font-size: 78px;
+      }
+
+      .buttons div {
+        font-size: 32px;
+        padding: 5px;
+        margin: auto;
+      }
+
+      #reset {
+        border-radius: 8px;
+        background-color: rgb(64, 128, 255);
+      }
+    </style>
+    <div class="counter">
+      <div id="c">0</div>
+    </div>
+    <div class="buttons">
+      <div id="decrease">Decrease</div>
+      <div id="reset">Reset</div>
+      <div id="increment">Increase</div>
+    </div>
+    <script></script>
+  </body>
+</html>
