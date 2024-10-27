@@ -19,17 +19,38 @@
         padding: 20px;
       }
       header {
-        background-color: #1d3557;
+        background: radial-gradient(
+            circle,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(68, 68, 68, 0.69) 100%
+          ),
+          url("bg1.png") no-repeat center center;
+        background-size: cover;
         padding: 20px 0;
         text-align: center;
-        color: #f1faee;
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
       }
       header h1 {
         font-size: 2.5em;
         margin: 0;
+        color: #f5f5f5;
+        background: radial-gradient(
+          circle,
+          rgba(68, 68, 68, 0.69) 25%,
+          rgba(255, 68, 68, 0) 50%
+        );
       }
       header p {
         font-size: 1.2em;
+        text-align: right;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0) 20%,
+          rgba(68, 68, 68, 0.69) 70%
+        );
+
+        padding-right: 15%;
+        color: #f5f5f5;
       }
       nav {
         text-align: center;
@@ -55,11 +76,13 @@
         flex: 1 1 calc(33.333% - 20px);
         display: flex;
         flex-direction: column;
+        max-width: 600px;
       }
       .post img {
         width: 100%;
         height: 200px;
         object-fit: cover;
+        object-position: top;
       }
       .post-content {
         padding: 20px;
@@ -92,60 +115,116 @@
       footer {
         text-align: center;
         padding: 20px 0;
-        background-color: #1d3557;
+        background: radial-gradient(
+          circle,
+          rgba(51, 51, 51, 1) 0%,
+          rgba(10, 10, 10, 1) 100%
+        );
         color: #f1faee;
         margin-top: 40px;
+      }
+
+      /* Responsive Layout */
+      @media (max-width: 992px) {
+        .post {
+          flex: 1 1 calc(50% - 20px);
+        }
+      }
+      @media (max-width: 768px) {
+        .post {
+          flex: 1 1 100%;
+        }
+        header h1 {
+          font-size: 2em;
+        }
+        header p {
+          font-size: 1em;
+        }
+        .post img {
+          height: 180px;
+        }
+      }
+      @media (max-width: 576px) {
+        nav {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+        .post img {
+          height: 150px;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Erasmus+ Project Blog</h1>
-      <p>Sharing our journey and experiences</p>
+      <h1 style="margin-top: 20px">💙Erasmus+💙</h1>
+      <p>~ a blog by Bodrug Denis</p>
     </header>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Projects</a>
-      <a href="#">Contact</a>
+      <a href="/index.html">Home</a>
+      <a href="/profesional_index.html">About</a>
+      <a href="/Data/Projects/projects_landing_page.html">Projects</a>
     </nav>
     <div class="container">
       <section class="main-content">
         <article class="post">
-          <img src="/Data/Projects/ErasmusBlog/e3.png" alt="Post image" />
+          <img src="/Data/Projects/ErasmusBlog/e1.jpg" alt="Post image" />
           <div class="post-content">
-            <h2 class="post-title">Project Kickoff</h2>
-            <p class="post-date">Posted on October 20, 2025</p>
+            <h2 class="post-title">Impact plan</h2>
+            <p class="post-date">Posted on 26 october 2024</p>
             <p class="post-excerpt">
-              Our Erasmus+ project has officially started! We gathered partners
-              from all over Europe to embark on this exciting journey. This post
-              will provide an overview of our goals and objectives...
+              Discover how one transformative Erasmus experience could spark
+              innovation, bridge cultures, and redefine professional paths.
             </p>
-            <div class="read-more"><a href="#">Read More</a></div>
+            <div class="read-more">
+              <a href="/Data/Projects/ErasmusBlog/page1.html">Read More</a>
+            </div>
           </div>
         </article>
         <article class="post">
           <img src="/Data/Projects/ErasmusBlog/e2.jpg" alt="Post image" />
           <div class="post-content">
-            <h2 class="post-title">First Workshop Insights</h2>
-            <p class="post-date">Posted on November 15, 2025s</p>
+            <h2 class="post-title">Dissemination plan</h2>
+            <p class="post-date">Posted on 27 october 2024</p>
             <p class="post-excerpt">
-              Our first workshop was a success! Participants engaged in
-              meaningful discussions on sustainable practices and cross-cultural
-              collaboration. Here are some key takeaways...
+              A new experiece is worthless without it being shared. Learn how to
+              <b style="color: hsl(0, 80%, 60%)">
+                share your inner self to become the world</b
+              >.
+            </p>
+            <div class="read-more">
+              <a href="/Data/Projects/ErasmusBlog/page2.html">Read More</a>
+            </div>
+          </div>
+        </article>
+        <article class="post">
+          <img src="/Data/Projects/ErasmusBlog/e3.png" alt="Post image" />
+          <div class="post-content">
+            <h2 class="post-title">
+              First <b style="color: hsl(200, 90%, 50%)">Erasmus+</b> program
+            </h2>
+            <p class="post-date">
+              Posted on [2 days after the Erasmus+ program]
+            </p>
+            <p class="post-excerpt">
+              See the the wonderfulness of the Erasmus+ program.
             </p>
             <div class="read-more"><a href="#">Read More</a></div>
           </div>
         </article>
         <article class="post">
-          <img src="/Data/Projects/ErasmusBlog/e1.jpg" alt="Post image" />
+          <img src="/Data/Projects/ErasmusBlog/e4.jpg" alt="Post image" />
           <div class="post-content">
-            <h2 class="post-title">Cultural Exchange Day</h2>
-            <p class="post-date">Posted on December 5, 2025</p>
+            <h2 class="post-title">Conference with Anatolie Coșciug</h2>
+            <p class="post-date">Posted on [Conference day]</p>
             <p class="post-excerpt">
-              Celebrating cultural diversity! Our participants shared their
-              unique traditions and customs in an unforgettable cultural
-              exchange event. Discover more about this amazing day...
+              The Erasmus+ project hosted an impactful conference featuring Dr.
+              Anatolie Coşciug, Assistant Professor, sociologist, and Deputy
+              Director of the Center for Comparative Migration Studies (CSCM).
+              The conference, titled "Migration and Integration in Contemporary
+              Europe," welcomed students, researchers, and Erasmus+ participants
             </p>
             <div class="read-more"><a href="#">Read More</a></div>
           </div>
@@ -153,7 +232,7 @@
       </section>
     </div>
     <footer>
-      <p>&copy; 2025 Erasmus+ Project. All rights reserved.</p>
+      <p>&copy; 2024 Erasmus+ Project. All rights reserved.</p>
     </footer>
   </body>
 </html>
